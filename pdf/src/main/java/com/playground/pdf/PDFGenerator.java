@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.playground.pdf.components.Component;
-import com.playground.pdf.entities.PDFStyle;
+import com.playground.pdf.entities.Style;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class PDFGenerator {
         this.components = components;
     }
 
-    public void generatePDF(PDFStyle style) {
+    public void generatePDF(Style style) {
         for (Component component : components) {
             component.render(style);
         }

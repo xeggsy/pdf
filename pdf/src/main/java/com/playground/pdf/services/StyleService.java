@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.playground.pdf.PDFGenerator;
 import com.playground.pdf.components.Component;
-import com.playground.pdf.dtos.PDFStyleDTO;
-import com.playground.pdf.entities.PDFStyle;
+import com.playground.pdf.dtos.StyleDTO;
+import com.playground.pdf.entities.Style;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
@@ -17,30 +17,29 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class PDFStyleService {
+public class StyleService {
     private final ModelMapper modelMapper;
     private final Validator validator;
 
-    public PDFStyle convertToPDFStyle(PDFStyleDTO styleDTO) {
-        PDFStyle pdfStyle = modelMapper.map(styleDTO, PDFStyle.class);
+    public Style convertToPDFStyle(StyleDTO styleDTO) {
+        Style style = modelMapper.map(styleDTO, Style.class);
 
-        // Perform validation using Hibernate Validator
-        Set<ConstraintViolation<PDFStyle>> violations = validator.validate(pdfStyle);
+        Set<ConstraintViolation<Style>> violations = validator.validate(style);
         if (!violations.isEmpty()) {
-            for (ConstraintViolation<PDFStyle> violation : violations) {
+            for (ConstraintViolation<Style> violation : violations) {
                 throw new IllegalArgumentException("Validation failed: " + violation.getMessage());
             }
         }
 
-        return pdfStyle;
+        return style;
     }
 
-    public PDFStyleDTO convertToDTO(PDFStyle pdfStyle) {
-        return modelMapper.map(pdfStyle, PDFStyleDTO.class);
+    public StyleDTO convertToDTO(Style style) {
+        return modelMapper.map(style, StyleDTO.class);
     }
 
-    public void generatePDF(PDFStyleDTO styleDTO, List<Component> components) {
-        PDFStyle style = convertToPDFStyle(styleDTO);
+    public void generatePDF(StyleDTO styleDTO, List<Component> components) {
+        Style style = convertToPDFStyle(styleDTO);
         PDFGenerator generator = new PDFGenerator(components);
         generator.generatePDF(style);
     }

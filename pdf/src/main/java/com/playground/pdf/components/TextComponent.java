@@ -1,6 +1,6 @@
 package com.playground.pdf.components;
 
-import com.playground.pdf.entities.PDFStyle;
+import com.playground.pdf.entities.Style;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,10 +9,10 @@ import lombok.Data;
 @AllArgsConstructor
 public class TextComponent implements Component {
     private String text;
-    private PDFStyle style = new PDFStyle();
+    private Style style = new Style();
 
     @Override
-    public void render(PDFStyle style) {
+    public void render(Style style) {
         System.out.println("Rendering text: " + text);
         // Styling logic using PDFStyle
     }

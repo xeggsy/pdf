@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class PDFStyle {
+public class Style {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
