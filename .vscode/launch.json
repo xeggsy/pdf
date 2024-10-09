@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PDFGenerator<pdf>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.playground.pdf.PDFGenerator",
+            "projectName": "pdf",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

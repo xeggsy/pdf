@@ -1,0 +1,36 @@
+{
+    "style": {
+        "fontFamily": "Arial",
+        "fontSize": 14,
+        "bold": true,
+        "italic": false,
+        "underline": true,
+        "textColor": "#FF5733",
+        "backgroundColor": "#FFFFFF",
+        "x": 100,
+        "y": 200,
+        "marginTop": 10,
+        "marginRight": 10,
+        "marginBottom": 10,
+        "marginLeft": 10,
+        "paddingTop": 5,
+        "paddingRight": 5,
+        "paddingBottom": 5,
+        "paddingLeft": 5,
+        "alignment": "CENTER"
+    },
+    "components": [
+        {
+            "type": "TextComponent",
+            "text": "This is some text"
+        },
+        {
+            "type": "ImageComponent",
+            "imagePath": "/path/to/logo.png"
+        },
+        {
+            "type": "TableComponent",
+            "data": [["Cell 1", "Cell 2"], ["Cell 3", "Cell 4"]]
+        }
+    ]
+}
